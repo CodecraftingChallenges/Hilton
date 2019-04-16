@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import classnames from 'classnames'
 import Address from '../Address'
 import Button from '../Button'
+import backgroundImg from './test1_assets/background.png'
 
 const Details = ({ address, number, children, className, details, img, userName }) => {
   return (
-    <Details.Styled className={classnames('details-component', { [className]: className })}>
+    <Details.Styled backgroundImg={backgroundImg} className={classnames('details-component', { [className]: className })}>
       {userName && <h1 className='details-by'>{userName} Details</h1>}
       {address && <div className='details-address'>
         <Address
@@ -53,6 +54,8 @@ Details.propTypes = {
 
 Details.Styled = styled.div`
   &.details-component {
+    background: url(${props => props.backgroundImg}) no-repeat;
+    background-size: 100%;
     padding-bottom: 150px;
     border-left: 1px solid #D9DCDE;
     width: 100%;
